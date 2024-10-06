@@ -70,5 +70,10 @@ lvim.plugins = {
 				desc = "Quickfix List (Trouble)",
 			},
 		},
+		{
+			'xeluxee/competitest.nvim',
+			dependencies = 'MunifTanjim/nui.nvim',
+			config = function() require('competitest').setup() end,
+		}
 	},
 }

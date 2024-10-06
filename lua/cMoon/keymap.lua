@@ -12,7 +12,7 @@ lvim.keys.normal_mode["<S-tab>"] = "<Cmd>bprevious<CR>"
 lvim.keys.normal_mode['<leader>b'] = "<Cmd>w !norminette %<CR>"
 lvim.keys.normal_mode["<C-b>"] = "<Cmd>NvimTreeToggle<CR>"
 lvim.keys.normal_mode["<F3>"] = ":%s@<c-r><c-w>@<c-r><c-w>@gc<c-f>$F@i"
-vim.keymap.set('n','mc',"<CMD>!make <CR>")
+vim.keymap.set('n','mc',":Competitest run <CR>")
 
 lvim.keys.normal_mode["<esc>"] = "<Cmd>:noh<CR>"
 -- vim.keymap.set('t','<C-\\><C-N>',"<esc>")

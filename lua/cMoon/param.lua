@@ -50,7 +50,7 @@ lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 -- 		}
 -- 	}
 -- }
-vim.opt.wrap = true         -- Enable line wrapping
-vim.opt.linebreak = true    -- Wrap lines at convenient points
-vim.opt.breakindent = true  -- Preserve indentation when wrapping
-vim.opt.showbreak = "+++"   -- Show a visual indicator for wrapped lines
+-- vim.opt.wrap = true         -- Enable line wrapping
+-- vim.opt.linebreak = true    -- Wrap lines at convenient points
+-- vim.opt.breakindent = true  -- Preserve indentation when wrapping
+-- vim.opt.showbreak = "+++"   -- Show a visual indicator for wrapped lines

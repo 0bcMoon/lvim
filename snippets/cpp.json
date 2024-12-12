@@ -55,16 +55,23 @@
 		"description": "vector"
 	},
 	"umap": {
-		"prefix": "umap",
+		"prefix": "map",
 		"body": [
-			"std::unordered_map<${1:int}, ${2:int}> ${3:map};"
+			"std::map<${1:int}, ${2:int}> ${3:map};"
 		],
 		"description": "vector"
 	},
 	"uset": {
-		"prefix": "uset",
+		"prefix": "set",
 		"body": [
-			"std::unordered_set<${1:int}> ${2:set};"
+			"std::set<${1:int}> ${2:set};"
+		]
+	},
+
+	"sort": {
+		"prefix": "sort",
+		"body": [
+			"std::sort(${1:vec}.begin(), ${1:vec}.end());"
 		]
 	},
 	"ifor": {
@@ -107,8 +114,8 @@
 			"\tpublic:",
 			"\t\t${TM_FILENAME_BASE}();",
 			"\t\t~${TM_FILENAME_BASE}();",
-			"\t\t${TM_FILENAME_BASE}(${TM_FILENAME_BASE} &other);",
-			"\t\t${TM_FILENAME_BASE}& operator=(${TM_FILENAME_BASE} &other);",
+			"\t\t${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE} &other);",
+			"\t\t${TM_FILENAME_BASE}& operator=(const ${TM_FILENAME_BASE} &other);",
 			"};"
 		],
 		"description": "Class template on Orthodox Canonical Form"
@@ -122,12 +129,12 @@
 			"{",
 			"}",
 			"",
-			"${TM_FILENAME_BASE}::${TM_FILENAME_BASE}(${TM_FILENAME_BASE} &other)",
+			"${TM_FILENAME_BASE}::${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE} &other)",
 			"{",
 			"\t*this = other;",
 			"}",
 			"",
-			"${TM_FILENAME_BASE} &${TM_FILENAME_BASE}::operator=(${TM_FILENAME_BASE} &other)",
+			"${TM_FILENAME_BASE} &${TM_FILENAME_BASE}::operator=(const ${TM_FILENAME_BASE} &other)",
 			"{",
 			"\tif (this == &other)",
 			"\t\treturn(*this);",
@@ -144,22 +151,10 @@
 		"prefix": "cpdebug",
 		"body": [
 			"using namespace std;",
-			"",
+			"#include <set>",
+			"#include <map>",
 			"#ifdef DEBUG",
 			"// A debug macro for single or multiple arguments",
-			"#define dbg(...) cerr << \"(\" << #__VA_ARGS__ << \"): \", debug_out(__VA_ARGS__)",
-			"",
-			"template<typename T>",
-			"void debug_out(const T& value) {",
-			"    cerr << value << \"\\n\";",
-			"}",
-			"",
-			"template<typename T, typename... Args>",
-			"void debug_out(const T& first, const Args&... rest) {",
-			"    cerr << first << \" \";",
-			"    debug_out(rest...);",
-			"}",
-			"",
 			"// Overloads for printing containers",
 			"template<typename T>",
 			"ostream& operator<<(ostream& os, const vector<T>& v) {",
@@ -199,6 +194,19 @@
 			"    os << \"}\";",
 			"    return os;",
 			"}",
+			"#define dbg(...) cerr << \"(\" << #__VA_ARGS__ << \"): \", debug_out(__VA_ARGS__)",
+			"",
+			"template<typename T>",
+			"void debug_out(const T& value) {",
+			"    cerr << value << \"\\n\";",
+			"}",
+			"",
+			"template<typename T, typename... Args>",
+			"void debug_out(const T& first, const Args&... rest) {",
+			"    cerr << first << \" \";",
+			"    debug_out(rest...);",
+			"}",
+			"",
 			"#endif",
 			"#ifndef DEBUG",
 			"#define dbg(...) ",

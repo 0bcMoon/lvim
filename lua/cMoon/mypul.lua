@@ -75,5 +75,11 @@ lvim.plugins = {
 			dependencies = 'MunifTanjim/nui.nvim',
 			config = function() require('competitest').setup() end,
 		},
+	},
+	{
+		"aznhe21/actions-preview.nvim",
+		config = function()
+			vim.keymap.set({ "v", "n" }, "<leader>la", require("actions-preview").code_actions)
+		end,
 	}
 }

@@ -11,9 +11,11 @@ require("cMoon.ensure")
 require("cMoon.usercmd")
 require("cMoon.snippets")
 
+local home = vim.loop.os_homedir()
+local inlcude_path = string.format("-I%s/cp/include", home)
 require('competitest').setup({
 	compile_command = {
-		cpp = { exec = "c++", args = { "-Wall", "-std=c++17", "-Wextra", "-DDEBUG", "$(FNAME)", "-o", "$(FNOEXT)" } },
+		cpp = { exec = "c++", args = { "-Wall", "-std=c++17", "-Wextra", "-DDEBUG", inlcude_path,  "$(FNAME)", "-o", "$(FNOEXT)" } },
 	},
 	testcases_directory = "./tests",
 	received_problems_path = function(task, file_extension)
@@ -31,7 +33,7 @@ require('competitest').setup({
 		local problem_name = string.gsub(task.name, " ", '_')
 		problem_name = string.gsub(problem_name, ",", '_')
 		judge = string.gsub(judge, " ", '_')
-		return string.format("%s/CP/%s/%s/%s.%s", vim.loop.os_homedir(), judge, contest, problem_name,
+		return string.format("%s/CP/%s/%s/%s.%s", home, judge, contest, problem_name,
 			file_extension)
 	end,
 	floating_border = "rounded",

@@ -11,5 +11,5 @@ require("cMoon.ensure")
 require("cMoon.usercmd")
 require("cMoon.snippets")
 require("cMoon.cpconf")
-
+require("cMoon.search")
 

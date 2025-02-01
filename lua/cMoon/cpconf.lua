@@ -1,6 +1,6 @@
 local cphome = vim.loop.os_homedir().."/CP"
 
-local inlcude_path = string.format("-I%s/cp/include", cphome)
+local inlcude_path = string.format("-I%s/include", cphome)
 local function sanitize(str)
     -- Replace non-alphanumeric characters with _
     str = str:gsub("[^%w]", "_")

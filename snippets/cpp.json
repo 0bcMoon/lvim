@@ -15,7 +15,8 @@
 			"using ll = long long;",
 			"using lpair = std::pair<ll, ll>;",
 			"using ipair = std::pair<int, int>;",
-			"#define all(a) a.begin(), a.end()",
+			"#define all(a) (a).begin(), (a).end()",
+			"#define sz(a) (int)(a).size()",
 			"void solve()",
 			"{",
 			"\t$1",
@@ -26,8 +27,16 @@
 			"\tstd::cin.tie(NULL);",
 			"\tint t;",
 			"\tstd::cin >> t;",
-			"\twhile(t--)",
-			"\t{\n\t\tsolve();\n\t}\n\treturn 0;\n}\n"
+			"\tint n = t;",
+			"\twhile (t--)",
+			"\t{",
+			"#ifdef DEBUG",
+			"\t\tstd::cerr << \"#Case \" << n - t << \" -------------------\\n\";",
+			"#endif // DEBUG",
+			"\t\tsolve();",
+			"\t}",
+			"\treturn 0;",
+			"}"
 		],
 		"description": "Default cpp code for CP"
 	},
@@ -57,7 +66,7 @@
 	"vector": {
 		"prefix": "vec",
 		"body": [
-			"std::vector<${1:int}> ${2:vec}(${3:n});"
+			"std::vector<${1:int}> ${2:a}(${3:n});"
 		],
 		"description": "vector"
 	},

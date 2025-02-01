@@ -79,7 +79,8 @@ lvim.plugins = {
 	{
 		"aznhe21/actions-preview.nvim",
 		config = function()
-			vim.keymap.set({ "v", "n" }, "<leader>la", require("actions-preview").code_actions)
+			lvim.lsp.buffer_mappings.normal_mode['<leader>la'] = { require("actions-preview").code_actions, "Show Code action" }
+			-- vim.keymap.set({ "v", "n" }, "<leader>la", require("actions-preview").code_actions)
 		end,
 	}
 }
